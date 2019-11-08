@@ -12,20 +12,26 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 
-
-\title{FINANČNI PRAKTIKUM \\\vspace{3cm} {\huge k-total rainbow domination numer vs. domination number}\vspace{3cm}}
-\author{Tim Resnik \\[1.5mm] Lana Herman \\[1.5mm]\vspace{7cm}}
+\title{\normalsize Finančni praktikum\\[1.5mm]
+\large \textbf{k-total rainbow domination numer vs. domination number}}
+\author{Tim Resnik, Lana Herman \\[1.5mm]}
 \date{November, 2019}
 
 \begin{document}
 
-\begin{titlepage}
-\clearpage \maketitle
-\thispagestyle{empty}
-\end{titlepage} 
-
 \maketitle
+
 \section{Uvod}
-\text{V najini projektni nalogi se bova ukvarjala z domnevo, ki pravi, da za graf G in} $k \geq 4$ \text{obstaja tesna povezava} $\gamma_{krt}(G) \geq 2\gamma(G)$. Torej se nanaša na k-rainbow t.d.n. in d.n. V programu \textit{Sage} bova za majhne grafe izračunala koeficient $\frac{\gamma_{krt}(G)}{\gamma(G)}$ in poskusila najti rezultat, ki bo manjši od 2. Če  bi nama to uspelo, bi prišla do protiprimera in naloga bi se končala. Če nama do protiprimera ne uspe priti, potem se bova usmerila na večje grafe. Generizirala bova naključen graf z $n \geq 15$ vozlišči. Nato bova z odstranjevanjem in dodajanjem povezav iskala tak graf, ki bo imel zgoraj omenjen koeficient manjši od 2.
+
+\text{V najini projektni nalogi se bova ukvarjala z domnevo, ki pravi, da za graf G in} $k \geq 4$ \text{obstaja tesna povezava} $\gamma_{krt}(G) \geq 2\gamma(G)$. Torej se nanaša na "k-rainbow total domination number" in "domination number". V programu \textit{Sage} bova za majhne grafe izračunala koeficient $\frac{\gamma_{krt}(G)}{\gamma(G)}$ in poskusila najti rezultat, ki bo manjši od 2. Če nama bo to uspelo, bova prišla do protiprimera in naloga bi se tu končala. Če nama do protiprimera ne uspe priti, potem se bova usmerila na večje grafe. Generizirala bova naključen graf z $n \geq 15$ vozlišči. Nato bova z odstranjevanjem in dodajanjem povezav iskala tak graf, ki bo imel zgoraj omenjen koeficient manjši od 2.\\
+Za večje grafe bova poiskala grafe $G$, za katere velja enakost $\gamma_{krt}(G) = 2\gamma(G)$. To na primer trivialno velja za grafe brez povezav.\\
+Pozorna bova tudi na to, če se za velike grafe ta koeficient veča in konvegira h nekemu številu.
+
+\section{Razlaga pojmov}
+
+Graf $G$ ima množico vozlišč $V(G)$ in množico povezav $E(G)$. Za množico $N_G(v)$ velja, da vsebuje vsa sosednja vozlišča $v$, v grafu G. Za grafa G in H, je kartezični produkt $G \square H$ graf z množico vozlišč $V(G) x V(H)$.\\
+\textit{Dominirana množica} grafa $G$ je $D \subseteq V(G)$, taka da za vsako vozlišče $v \in V(G)$ in $v \notin D$ velja, da je sosed nekemu vozlišču iz $D$. \textit{Dominirano število}, $\gamma(G)$, je velikost najmanjše dominirane množice. Če za $\forall v \in V(G)$ velja, da je sosed vozlišču iz $D$, za $D$ rečemo, da je \textit{totalno dominirana množica} grafa $G$. \textit{Totalno dominirano število}, $\gamma_{t}(G)$, je velikost najmanjše totalno dominirane množice.\\
+Za pozitivno celo število $k$, je \textit{"k-rainbow domination function"} ($k$RDF) grafa $G$ funkcija $f$, ki slika iz $V(G)$ v množico $\{1, \cdots, k\}$. Zanjo velja, da za katerikoli $v \in V(G)$ in $f(v) = \emptyset$ velja $\cup_{u \in N_G(v)} f(u) = [k]$. Definiramo $\|f\| = \sum_{v \in V(G)}|f(v)|$. $\|f\|$ rečemo \textit{teža} $f$-a. \textit{"k-rainbow domination number"}, $\gamma_{kr}(G)$, grafa $G$ je minimalna vrednost $\|f\|$ za vse "k-rainbow domination functions". Po definiciji vemo, da za vse $k \geq 1$ velja $$\gamma_{kr}(G) = \gamma(G \square K_k).$$
+Graf $K_k$ predstavlja polni graf na $k$ vozliščih. Nazadnje definirajmo še \textit{"k-rainbow total domination function"} ($k$RTDF), katera se od "k-rainbow domination function" razlikuje v dodatnem pogoju, ki zagotavlja, da če za $\forall v \in V(G)$ velja $f(v) = \{i\}$, potem obstaja tak $u \in N_G(v)$, da je $i \in f(u)$. \textit{"k-rainbow total domination number"}, $\gamma_{krt}(G)$, grafa $G$ je minimalna vrednost $\|f\|$ za vse "k-rainbow total domination functions". Tudi tu za vse $k \geq 1$ velja $$\gamma_{krt}(G) = \gamma_t(G \square K_k).$$
 
 \end{document}
