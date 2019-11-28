@@ -43,23 +43,13 @@ Graf $K_k$ predstavlja polni graf na $k$ vozliščih. Nazadnje definirajmo še \
 \subsection{Majhni grafi}
 
 Za majhne grafe sva definirala naslednjo pseudokodo.
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
-    \includegraphics[width=13cm, height=5cm]{Slika1}
+    \includegraphics[width=13cm, height=5.35cm]{Slika1}
     \label{fig:mesh1}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=12cm, height=13cm]{Slika2}
-    \label{fig:mesh1}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=12cm, height=15cm]{Slika3}
-    \label{fig:mesh1}
-\end{figure}
-
+\end{figure}\\
+V kodi seznam \textit{result} predstavlja seznam vseh koeficientov $\frac{\gamma_{krt}(G)}{\gamma(G)}$, seznam \textit{gresult} predstvalja vse tiste grafe, za katere velja neenakost $\frac{\gamma_{krt}(G)}{\gamma(G)} < 2$, seznam \textit{dvaresult} pa predstavlja grafe za katere velja enakost $\frac{\gamma_{krt}(G)}{\gamma(G)} = 2$.\\
+Prva zanka preteče $i$ naključnih grafov, generiranih z že vgrajeno funkcijo iz programa \textit{sage}, imenovano \textit{graphs.RandomGNP(n,p)}, kjer $n$ predstvalja število vozlišč, $p$ pa verjetnost, da posamezno povezavo doda v graf.\\
+Druga zanka se zapelje čez 
 
 \end{document}
