@@ -26,7 +26,7 @@ Fakulteta za matematiko in fiziko \vspace{2cm}}
 
 \section{Problem naloge}
 
-V projektni nalogi se bova ukvarjala z domeno, ki se ukvarja s povezavo med "k-rainbow total domination number" (označimo z $\gamma_{krt}(G)$)  in "domination number" (označimo z $\gamma(G)$). Definiciji za $\gamma_{krt}(G)$ in $\gamma(G)$ sta v razdelku \textbf{Razlaga pojmov}.\\
+V projektni nalogi se bova ukvarjala z domeno, ki se ukvarja s povezavo med 'k-rainbow total domination number' (označimo z $\gamma_{krt}(G)$)  in 'domination number' (označimo z $\gamma(G)$). Definiciji za $\gamma_{krt}(G)$ in $\gamma(G)$ sta v razdelku \textbf{Razlaga pojmov}.\\
 Domneva pravi, da za graf G in $k \geq 4$ \text{obstaja tesna povezava} $\gamma_{krt}(G) \geq 2\gamma(G)$. Cilj najine projetkne naloge je najti tak graf, za katerega ta neenkost ne drži. To sva na majhnih grafih preverila na konkretnih primerih, kjer sva število vozlišč in število $k$ vnesla ročno. Za večje grafe sva uporabila metodo \textit{Simulated Annealing}.\\
 Poiskala sva tudi primere, za katere velja enakost $\gamma_{krt}(G) = 2\gamma(G)$.
 
@@ -34,8 +34,8 @@ Poiskala sva tudi primere, za katere velja enakost $\gamma_{krt}(G) = 2\gamma(G)
 
 Graf $G$ ima množico vozlišč $V(G)$ in množico povezav $E(G)$. Za množico $N_G(v)$ velja, da vsebuje vsa sosednja vozlišča $v$, v grafu G. Za grafa G in H, je kartezični produkt $G \square H$ graf z množico vozlišč $V(G) \times V(H)$.\\
 \textit{Dominirana množica} grafa $G$ je $D \subseteq V(G)$, taka da za vsako vozlišče $v \in V(G)$ in $v \notin D$ velja, da je sosed nekemu vozlišču iz $D$. \textit{Dominirano število}, $\gamma(G)$, je velikost najmanjše dominirane množice. Če za $\forall v \in V(G)$ velja, da je sosed vozlišču iz $D$, za $D$ rečemo, da je \textit{totalno dominirana množica} grafa $G$. \textit{Totalno dominirano število}, $\gamma_{t}(G)$, je velikost najmanjše totalno dominirane množice.\\
-Za pozitivno celo število $k$, je \textit{"k-rainbow domination function"} ($k$RDF) grafa $G$ funkcija $f$, ki slika iz $V(G)$ v množico $\{1, \cdots, k\}$. Zanjo velja, da za katerikoli $v \in V(G)$ in $f(v) = \emptyset$ velja $\cup_{u \in N_G(v)} f(u) = [k]$. Definiramo $\|f\| = \sum_{v \in V(G)}|f(v)|$. $\|f\|$ rečemo \textit{teža} $f$-a. \textit{"k-rainbow domination number"}, $\gamma_{kr}(G)$, grafa $G$ je minimalna vrednost $\|f\|$ za vse "k-rainbow domination functions". Po definiciji vemo, da za vse $k \geq 1$ velja $$\gamma_{kr}(G) = \gamma(G \square K_k).$$
-Graf $K_k$ predstavlja polni graf na $k$ vozliščih. Nazadnje definirajmo še \textit{"k-rainbow total domination function"} ($k$RTDF), katera se od "k-rainbow domination function" razlikuje v dodatnem pogoju, ki zagotavlja, da če za $\forall v \in V(G)$ velja $f(v) = \{i\}$, potem obstaja tak $u \in N_G(v)$, da je $i \in f(u)$. \textit{"k-rainbow total domination number"}, $\gamma_{krt}(G)$, grafa $G$ je minimalna vrednost $\|f\|$ za vse "k-rainbow total domination functions". Tudi tu za vse $k \geq 1$ velja $$\gamma_{krt}(G) = \gamma_t(G \square K_k).$$
+Za pozitivno celo število $k$, je \textit{'k-rainbow domination function'} ($k$RDF) grafa $G$ funkcija $f$, ki slika iz $V(G)$ v množico $\{1, \cdots, k\}$. Zanjo velja, da za katerikoli $v \in V(G)$ in $f(v) = \emptyset$ velja $\cup_{u \in N_G(v)} f(u) = [k]$. Definiramo $\|f\| = \sum_{v \in V(G)}|f(v)|$. $\|f\|$ rečemo \textit{teža} $f$-a. \textit{'k-rainbow domination number'}, $\gamma_{kr}(G)$, grafa $G$ je minimalna vrednost $\|f\|$ za vse 'k-rainbow domination functions'. Po definiciji vemo, da za vse $k \geq 1$ velja $$\gamma_{kr}(G) = \gamma(G \square K_k).$$
+Graf $K_k$ predstavlja polni graf na $k$ vozliščih. Nazadnje definirajmo še \textit{'k-rainbow total domination function'} ($k$RTDF), katera se od 'k-rainbow domination function' razlikuje v dodatnem pogoju, ki zagotavlja, da če za $\forall v \in V(G)$ velja $f(v) = \{i\}$, potem obstaja tak $u \in N_G(v)$, da je $i \in f(u)$. \textit{'k-rainbow total domination number'}, $\gamma_{krt}(G)$, grafa $G$ je minimalna vrednost $\|f\|$ za vse 'k-rainbow total domination functions'. Tudi tu za vse $k \geq 1$ velja $$\gamma_{krt}(G) = \gamma_t(G \square K_k).$$
 \pagebreak
 
 \section{Reševanje problema}
@@ -50,6 +50,19 @@ Za majhne grafe sva definirala naslednjo pseudokodo.
 \end{figure}\\
 V kodi seznam \textit{result} predstavlja seznam vseh koeficientov $\frac{\gamma_{krt}(G)}{\gamma(G)}$, seznam \textit{gresult} predstvalja vse tiste grafe, za katere velja neenakost $\frac{\gamma_{krt}(G)}{\gamma(G)} < 2$, seznam \textit{dvaresult} pa predstavlja grafe za katere velja enakost $\frac{\gamma_{krt}(G)}{\gamma(G)} = 2$.\\
 Prva zanka preteče $i$ naključnih grafov, generiranih z že vgrajeno funkcijo iz programa \textit{sage}, imenovano \textit{graphs.RandomGNP(n,p)}, kjer $n$ predstvalja število vozlišč, $p$ pa verjetnost, da posamezno povezavo doda v graf.\\
-Druga zanka se zapelje čez 
+Druga zanka se zapelje čez določeni število $k$-jev, kjer $k$ predstvalja število vozlišč na polnem grafu. Po definiciji namreč  vemo, da 'k-rainbow total domination number' izračunamo preko kartezičnega produkta med grafom $G$ in polnim grafom s $k$ vozlišči.\\[1.5mm]
+To kodo sva uporabila za $n \in \{5, \cdots, 20\}$, vendar na različnem številu korakov in $k$-jev. Za $k \geq 3$ sva dobila minimum zmeraj enak 2, za $k = 2$ pa sva dobila naslednji protiprimer:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=7.5cm, height=6cm]{Slika2}
+    \label{fig:mesh1}
+\end{figure}\\
+Opazimo, da je takih grafov kar 205 (koda je preverila na 1000 grafih s 15 vozlišči). To število se seveda spreminja, ko kodo poženemo večkrat. Zato sva jo pognala večrat in na različnem številu vozlišč. Vse skupaj je koda pregledala približno $10^{100}$ grafov, izključno za $k = 2$. Podatke sva izpisala v program \textit{Matlab}, jih za posamezno število vozlišč povprečila in jih aproksimirala z že vgrajeno funkcijo \textit{interp1}. Dobila sva spodnji graf.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=7.5cm, height=6cm]{Slika3}
+    \label{fig:mesh1}
+\end{figure}\\
+Opazimo, da protiprimerov ne dobimo za grafe z manj kot 7 vozlišč in grafe z več kot 55 vozlišč. Največ pa jih je pri grafih s približno 25 vozlišči.
 
 \end{document}
