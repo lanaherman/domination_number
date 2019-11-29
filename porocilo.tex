@@ -51,7 +51,7 @@ Za majhne grafe sva definirala naslednjo pseudokodo.
 V kodi seznam \textit{result} predstavlja seznam vseh koeficientov $\frac{\gamma_{krt}(G)}{\gamma(G)}$, seznam \textit{gresult} predstvalja vse tiste grafe, za katere velja neenakost $\frac{\gamma_{krt}(G)}{\gamma(G)} < 2$, seznam \textit{dvaresult} pa predstavlja grafe za katere velja enakost $\frac{\gamma_{krt}(G)}{\gamma(G)} = 2$.\\
 Prva zanka preteče $i$ naključnih grafov, generiranih z že vgrajeno funkcijo iz programa \textit{sage}, imenovano \textit{graphs.RandomGNP(n,p)}, kjer $n$ predstvalja število vozlišč, $p$ pa verjetnost, da posamezno povezavo doda v graf.\\
 Druga zanka se zapelje čez določeni število $k$-jev, kjer $k$ predstvalja število vozlišč na polnem grafu. Po definiciji namreč  vemo, da 'k-rainbow total domination number' izračunamo preko kartezičnega produkta med grafom $G$ in polnim grafom s $k$ vozlišči.\\[1.5mm]
-To kodo sva uporabila za $n \in \{5, \cdots, 20\}$, vendar na različnem številu korakov in $k$-jev. Za $k \geq 3$ sva dobila minimum zmeraj enak 2, za $k = 2$ pa sva dobila naslednji protiprimer:
+To kodo sva uporabila za $n \in \{5, \cdots, 20\}$ na različnem številu korakov in različnih $k$-jih. Za $k \geq 3$ sva minimum zmeraj dobila enak 2, za $k = 2$ pa sva dobila veliko protiprimerov, npr.:
 \begin{figure}[h!]
     \centering
     \includegraphics[width=7.5cm, height=6cm]{Slika2}
@@ -63,6 +63,17 @@ Opazimo, da je takih grafov kar 205 (koda je preverila na 1000 grafih s 15 vozli
     \includegraphics[width=7.5cm, height=6cm]{Slika3}
     \label{fig:mesh1}
 \end{figure}\\
-Opazimo, da protiprimerov ne dobimo za grafe z manj kot 7 vozlišč in grafe z več kot 55 vozlišč. Največ pa jih je pri grafih s približno 25 vozlišči.
+Opazimo, da protiprimerov ne dobimo za grafe z manj kot 7 vozlišč, za večje grafe pa velja, da gre število protiprimerov proti nič, ko se veča število vozlišč. Največ pa jih je pri grafih s približno 25 vozlišči.
+\pagebreak
+
+\subsection{Veliki grafi}
+
+Za velike grafe sva definirala naslednjo pseudokodo.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=13cm, height=11cm]{Slika4}
+    \label{fig:mesh1}
+\end{figure}\\
+
 
 \end{document}
