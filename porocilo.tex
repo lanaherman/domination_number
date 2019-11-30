@@ -24,6 +24,9 @@ Fakulteta za matematiko in fiziko \vspace{2cm}}
 \thispagestyle{empty}
 \end{titlepage}
 
+\tableofcontents
+\pagebreak
+
 \section{Problem naloge}
 
 V projektni nalogi se bova ukvarjala z domeno, ki se ukvarja s povezavo med 'k-rainbow total domination number' (označimo z $\gamma_{krt}(G)$)  in 'domination number' (označimo z $\gamma(G)$). Definiciji za $\gamma_{krt}(G)$ in $\gamma(G)$ sta v razdelku \textbf{Razlaga pojmov}.\\
@@ -78,6 +81,20 @@ Za velike grafe sva definirala naslednjo pseudokodo.
     \label{fig:mesh1}
 \end{figure}\\
 Funkcija \textit{spremeni\_graf()} nam ne nepovezan graf tako spremeni, da mu naključno odsrani povezavo in naključno doda povezavo. To funkcijo sva definirala zato, da sva jo lahko uporabila v naslenji kodi. Njena časovna zahtevnost je $\mathcal{O}(n^2)$, saj gre čez dve for zanki, vsaka ima zahtevnost $\mathcal{O}(n)$.\\
-Zadnja koda pa predstavlja \textit{Simulated Annealing}.
+Zadnja koda pa predstavlja metodo \textit{Simulated Annealing}. To je metoda za približevanje h globalnemu optimumu dane funkcije. Tako sva s spreminjanjem danega grafa iskala tak graf, za katerega bo veljalo $\frac{\gamma_{krt}(G)}{\gamma(G)} < 2$. To kodo sva pognala na grafih z vsaj 20 vozlišči. Na potlagi najinih poiskusov sva ugotovila, da za grafe s sodim številom vozlišč je koeficient enak 2, za grafe z lihim številom vozlišč pa velja formula $\frac{n}{\lfloor{\frac{n}{2}}\rfloor}$. Opazimo torej, če pošljemo $n \rightarrow \infty$, gre koeficient proti 2.\\
+\pagebreak
+
+Prvi graf ima 20 vozlišč, $k=4$ in $p=0.5$, drugi pa ima $k=5$ in $p=0.1$.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=5cm, height=6cm]{Slika5}
+    \label{fig:mesh1}
+\end{figure}\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=5cm, height=5cm]{Slika6}
+    \label{fig:mesh1}
+\end{figure}\\
+
 
 \end{document}
