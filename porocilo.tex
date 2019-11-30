@@ -49,9 +49,12 @@ Za majhne grafe sva definirala naslednjo pseudokodo.
     \label{fig:mesh1}
 \end{figure}\\
 V kodi seznam \textit{result} predstavlja seznam vseh koeficientov $\frac{\gamma_{krt}(G)}{\gamma(G)}$, seznam \textit{gresult} predstvalja vse tiste grafe, za katere velja neenakost $\frac{\gamma_{krt}(G)}{\gamma(G)} < 2$, seznam \textit{dvaresult} pa predstavlja grafe za katere velja enakost $\frac{\gamma_{krt}(G)}{\gamma(G)} = 2$.\\
-Prva zanka preteče $i$ naključnih grafov, generiranih z že vgrajeno funkcijo iz programa \textit{sage}, imenovano \textit{graphs.RandomGNP(n,p)}, kjer $n$ predstvalja število vozlišč, $p$ pa verjetnost, da posamezno povezavo doda v graf.\\
-Druga zanka se zapelje čez določeni število $k$-jev, kjer $k$ predstvalja število vozlišč na polnem grafu. Po definiciji namreč  vemo, da 'k-rainbow total domination number' izračunamo preko kartezičnega produkta med grafom $G$ in polnim grafom s $k$ vozlišči.\\[1.5mm]
+Prva zanka preteče $i$ naključnih grafov, generiranih z že vgrajeno funkcijo iz programa \textit{sage}, imenovano \textit{graphs.RandomGNP(n,p)}, kjer $n$ predstvalja število vozlišč, $p$ pa verjetnost, da posamezno povezavo doda v graf. Ta zanka je porabi $\mathcal{O}(n)$ časa.\\
+Druga zanka se zapelje čez določeni število $k$-jev, kjer $k$ predstvalja število vozlišč na polnem grafu. Po definiciji namreč  vemo, da 'k-rainbow total domination number' izračunamo preko kartezičnega produkta med grafom $G$ in polnim grafom s $k$ vozlišči. Druga zanka porabi $\mathcal{O}(m)$ časa, kjer je $m$ število grafov, ki jih preteče $k$.\\
+Funkcija \textit{cartesian\_product()} porabi $\mathcal{O}(n m)$ časa, saj vsakemu vozlišču iz grafa $G$ ($n$ vozlišč) priredi vsako vozlišče iz $k$-polnega grafa ($m$ vozlišč).\\
+Torej je časovna zahtevnost te pseudokode enaka $\mathcal{O}(n^2 m^2)$.\\[1.5mm]
 To kodo sva uporabila za $n \in \{5, \cdots, 20\}$ na različnem številu korakov in različnih $k$-jih. Za $k \geq 3$ sva minimum zmeraj dobila enak 2, za $k = 2$ pa sva dobila veliko protiprimerov, npr.:
+\pagebreak
 \begin{figure}[h!]
     \centering
     \includegraphics[width=7.5cm, height=6cm]{Slika2}
@@ -74,6 +77,7 @@ Za velike grafe sva definirala naslednjo pseudokodo.
     \includegraphics[width=13cm, height=11cm]{Slika4}
     \label{fig:mesh1}
 \end{figure}\\
-
+Funkcija \textit{spremeni\_graf()} nam ne nepovezan graf tako spremeni, da mu naključno odsrani povezavo in naključno doda povezavo. To funkcijo sva definirala zato, da sva jo lahko uporabila v naslenji kodi. Njena časovna zahtevnost je $\mathcal{O}(n^2)$, saj gre čez dve for zanki, vsaka ima zahtevnost $\mathcal{O}(n)$.\\
+Zadnja koda pa predstavlja \textit{Simulated Annealing}.
 
 \end{document}
