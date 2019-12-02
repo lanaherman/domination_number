@@ -81,7 +81,7 @@ Za velike grafe sva definirala naslednjo pseudokodo.
     \label{fig:mesh1}
 \end{figure}\\
 Funkcija \textit{spremeni\_graf()} nam ne nepovezan graf tako spremeni, da mu naključno odsrani povezavo in naključno doda povezavo. To funkcijo sva definirala zato, da sva jo lahko uporabila v naslenji kodi. Njena časovna zahtevnost je $\mathcal{O}(n^2)$, saj gre čez dve for zanki, vsaka ima zahtevnost $\mathcal{O}(n)$.\\
-Zadnja koda pa predstavlja metodo \textit{Simulated Annealing}. To je metoda za približevanje h globalnemu optimumu dane funkcije. Tako sva s spreminjanjem danega grafa iskala tak graf, za katerega bo veljalo $\frac{\gamma_{krt}(G)}{\gamma(G)} < 2$. To kodo sva pognala na grafih z vsaj 20 vozlišči. Na podlagi najinih poizkusov sva ugotovila, da za grafe s sodim številom vozlišč, za vsak $k>=4$, je koeficient enak 2 , za grafe z lihim številom vozlišč pa velja formula $\frac{n}{\lfloor{\frac{n}{2}}\rfloor}$, v primeru k>=5. Opazimo torej, če pošljemo $n \rightarrow \infty$, gre koeficient proti 2.\\
+Zadnja koda pa predstavlja metodo \textit{Simulated Annealing}. To je metoda za približevanje h globalnemu optimumu dane funkcije. Tako sva s spreminjanjem danega grafa iskala tak graf, za katerega bo veljalo $\frac{\gamma_{krt}(G)}{\gamma(G)} < 2$. To kodo sva pognala na grafih z vsaj 20 vozlišči. Na podlagi najinih poizkusov sva ugotovila, da za grafe s sodim številom vozlišč, za vsak $k \ge 4$, je koeficient enak 2 , za grafe z lihim številom vozlišč pa velja formula $\frac{n}{\lfloor{\frac{n}{2}}\rfloor}$, v primeru $k \ge 5$. Opazimo torej, če pošljemo $n \rightarrow \infty$, gre koeficient proti 2.\\
 \pagebreak
 
 Prvi graf ima 20 vozlišč, $k=4$ in $p=0.5$, drugi pa ima $k=5$ in $p=0.1$.
@@ -95,11 +95,11 @@ Prvi graf ima 20 vozlišč, $k=4$ in $p=0.5$, drugi pa ima $k=5$ in $p=0.1$.
     \includegraphics[width=5cm, height=5cm]{Slika6}
     \label{fig:mesh1}
 \end{figure}\\
-\pagebreak
 
 \subsection{Drevesa}
 
 Poizkuse sva izvajala tudi na povezanih drevesih, katere sva lahko preverila v celoti na večjem številu vozlišč, saj jih je samih po sebi manj, kot pa npr. vseh možnih povezanih grafov na istem številu vozlišč. Testirala sva za $k$ med 4 in 12, ter število vozlišč do 20. Tu sva opazila, podobne stvari kot pri majhnih grafih, iz česar sklepava, da manj ko ima graf povezav(je podoben drevesu), večja je verjetnost, da se koeficient približa 2.\\
 
+\pagebreak
 
 \end{document}
