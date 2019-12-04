@@ -7,11 +7,12 @@
 \usepackage{amsmath}
 \usepackage{makeidx}
 \usepackage{graphicx}
+\usepackage{caption}
 \graphicspath{ {./images/} }
 
 
 
-\title{Finančni praktikum \\\vspace{2cm} {\huge $k$-total rainbow domination numer vs. domination number}\vspace{2cm}}
+\title{Finančni praktikum \\\vspace{2cm} {\huge $k$-total rainbow domination number vs. domination number}\vspace{2cm}}
 \author{Tim Resnik \\[1.5mm] Lana Herman \\[1.5mm]\vspace{6cm}
 Univerza v Ljubljani \\[1.5mm]
 Fakulteta za matematiko in fiziko \vspace{2cm}}
@@ -60,17 +61,52 @@ To kodo sva uporabila za $n \in \{5, \cdots, 20\}$ na različnem številu korako
 \pagebreak
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=7.5cm, height=6cm]{Slika2}
+    \includegraphics[width=7cm, height=6.2cm]{Slika2}
     \label{fig:mesh1}
 \end{figure}\\
-Opazimo, da je takih grafov kar 205 (koda je preverila na 1000 grafih s 15 vozlišči). To število se seveda spreminja, ko kodo poženemo večkrat. Zato sva jo pognala večrat in na različnem številu vozlišč. Vse skupaj je koda pregledala približno $10^{100}$ grafov, izključno za $k = 2$. Podatke sva izpisala v program \textit{Matlab}, jih za posamezno število vozlišč povprečila in jih aproksimirala z že vgrajeno funkcijo \textit{interp1}. Dobila sva spodnji graf.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=4.7cm, height=6cm]{Slika8}
+    \label{fig:mesh1}
+\end{figure}\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=5.3cm, height=6.3cm]{Slika11}
+    \label{fig:mesh1}
+\end{figure}\\
+Koda je za vse zgornje grafe preverila na 1000 naključnih grafih. Pognala sva jo večrat in na različnem številu vozlišč. Vse skupaj je koda pregledala približno $10^{100}$ grafov, izključno za $k = 2$. Podatke sva izpisala v program \textit{Matlab}, jih za posamezno število vozlišč povprečila in jih aproksimirala z že vgrajeno funkcijo \textit{interp1}. Dobila sva spodnji graf.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=7.5cm, height=6cm]{Slika3}
     \label{fig:mesh1}
 \end{figure}\\
-Opazimo, da protiprimerov ne dobimo za grafe z manj kot 7 vozlišč, za večje grafe pa velja, da gre število protiprimerov proti nič, ko se veča število vozlišč. Največ pa jih je pri grafih s približno 25 vozlišči.
-\pagebreak
+Z grafa je vidno, da protiprimerov ne dobimo za grafe z manj kot 7 vozlišč, za večje grafe pa velja, da gre število protiprimerov proti nič, ko se veča število vozlišč, oziroma od 50 vozlišč naprej ostaja število zelo majhno. Največ pa jih je pri grafih s približno 25 vozlišči.\\
+Spodaj je še nekaj primerov majhnih grafov za $k \geq 4$.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=6.5cm, height=6cm]{Slika10}
+    \label{fig:mesh1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=5cm, height=6cm]{Slika9}
+    \label{fig:mesh1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=4cm, height=6cm]{Slika14}
+    \label{fig:mesh1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=6cm, height=6cm]{Slika15}
+    \label{fig:mesh1}
+\end{figure}
+
+\clearpage
 
 \subsection{Veliki grafi}
 
@@ -84,23 +120,67 @@ Funkcija \textit{spremeni\_graf()} nam ne nepovezan graf tako spremeni, da mu na
 Zadnja koda pa predstavlja metodo \textit{Simulated Annealing}. To je metoda za približevanje h globalnemu optimumu dane funkcije. Tako sva s spreminjanjem danega grafa iskala tak graf, za katerega bo veljalo $\frac{\gamma_{krt}(G)}{\gamma(G)} < 2$. To kodo sva pognala na grafih z vsaj 20 vozlišči. Na podlagi najinih poizkusov sva ugotovila, da za grafe s sodim številom vozlišč, za vsak $k \ge 4$, je koeficient enak 2 , za grafe z lihim številom vozlišč pa sva domnevala, po nekaterih poizkusih iz manjših grafov, da velja formula $\frac{n}{\lfloor{\frac{n}{2}}\rfloor}$. Potem sva pognala kodo na grafu z neparnim številom vozlišč, kjer sva dobila koeficient 2, se pravi protiprimer najine domneve. Sploh pri velikih grafih se tudi opazi, kako število povezav v grafu vpliva na čas, ki ga algoritem potrebuje za izračun željenega koeficienta. Namreč pri grafih z manj povezavami je koeficient res enak 2, a je čas računanja neprimerjlivo daljši, najverjetneje zaradi funkcije $spremen_graf$, ki se mora v zelo redkem grafu velikokrat ponoviti, saj pogosto vrne graf, ki ni povezan, kar jo občutno upočasni. \\
 \pagebreak
 
-Prvi graf ima 20 vozlišč, $k=4$ in $p=0.5$, drugi pa ima $k=5$ in $p=0.1$.
 \begin{figure}[h!]
+    \caption*{$k=4$ in $p=0.1$}
     \centering
-    \includegraphics[width=5cm, height=6cm]{Slika5}
+    \includegraphics[width=5cm, height=6cm]{Slika17}
     \label{fig:mesh1}
-\end{figure}\\
+\end{figure}
+
 \begin{figure}[h!]
+    \caption*{$k=5$ in $p=0.1$}
     \centering
     \includegraphics[width=5cm, height=5cm]{Slika6}
     \label{fig:mesh1}
-\end{figure}\\
+\end{figure}
+
+\begin{figure}[h!]
+    \caption*{$k=6$ in $p=0.1$}
+    \centering
+    \includegraphics[width=5cm, height=5cm]{Slika7}
+    \label{fig:mesh1}
+\end{figure}
+
+\begin{figure}[h!]
+    \caption*{$k=4$ in $p=0.5$}
+    \centering
+    \includegraphics[width=5cm, height=5cm]{Slika12}
+    \label{fig:mesh1}
+\end{figure}
+
+\begin{figure}[h!]
+    \caption*{$k=4$ in $p=0.5$}
+    \centering
+    \includegraphics[width=5cm, height=6cm]{Slika5}
+    \label{fig:mesh1}
+\end{figure}
+
+\begin{figure}[h!]
+    \caption*{$k=6$ in $p=0.5$}
+    \centering
+    \includegraphics[width=5cm, height=5cm]{Slika13}
+    \label{fig:mesh1}
+\end{figure}
+
+\clearpage
 
 \subsection{Drevesa}
 
 Poizkuse sva izvajala tudi na povezanih drevesih, katere sva lahko preverila v celoti na večjem številu vozlišč, saj jih je samih po sebi manj, kot pa npr. vseh možnih povezanih grafov na istem številu vozlišč. Testirala sva za $k$ med 4 in 12, ter število vozlišč do 20. Tu sva opazila, podobne stvari kot pri majhnih grafih, iz česar sklepava, da manj ko ima graf povezav(je podoben drevesu), večja je verjetnost, da se koeficient približa 2.\\
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=6cm, height=6cm]{Slika16}
+    \label{fig:mesh1}
+\end{figure}
+
 \subsection{Dvodelni grafi}
 Posebej sva kodo izvajala še na dvodelnih drevesih z vozlišči $n \in \{1, \cdots, 20\}$, kjer sva ugotovila, da formula $\frac{n}{\lfloor{\frac{n}{2}}\rfloor}$ velja za vsa vozlišča od 1 do vključno s 3, nato pa je koeficient zmeraj enak 2.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=6cm, height=6.5cm]{Slika18}
+    \label{fig:mesh1}
+\end{figure}
 
 \end{document}
